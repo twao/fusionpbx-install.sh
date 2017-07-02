@@ -13,8 +13,11 @@ cd "$(dirname "$0")"
 verbose "Updating CentOS"
 yum -y update && yum -y upgrade
 
+# Add the EPEL repository
+yum -y install epel-release
+
 # Installing basics packages
-yum -y install ntp htop epel-release vim openssl
+yum -y install ntp htop vim openssl
 
 # Disable SELinux
 resources/selinux.sh
